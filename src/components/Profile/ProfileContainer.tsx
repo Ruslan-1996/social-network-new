@@ -52,7 +52,7 @@ type mapStateToPropsType = {
   posts: Array<postType>
   newPostText: string
   isPreloader: boolean
-  authUserID: number
+  authUserID: number | null
   status: string
 }
 

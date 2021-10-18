@@ -10,7 +10,7 @@ type propsType = {
   unfollow: (userId: number) => void,
   name: string,
   id: number,
-  authId: number
+  authId: number | null
   photo: null | string,
   status: null | string,
   followed: boolean,
@@ -35,7 +35,7 @@ const User: React.FC<propsType> = (props) => {
             <FontAwesomeIcon icon={faUser} color={'white'}/>
           </div>}
       </NavLink>
-      {(props.authId !== props.id) && (props.followed ?
+      {(props.authId !== props.id && props.authId) && (props.followed ?
         <button disabled={props.isFollowInProgress.some(userID => userID === props.id)} className={s.button}
                 onClick={unfollow}>
           {props.isFollowInProgress.some(userID => userID === props.id) ?
@@ -49,7 +49,7 @@ const User: React.FC<propsType> = (props) => {
         </button>)}
       <div className={s.bio}>
         <div>{props.name}</div>
-        <div>{props.status ? props.status : 'нет статуса'}</div>
+        <div>{props.status ? props.status : 'Don\'t have a status'}</div>
       </div>
     </div>
   );

@@ -1,5 +1,4 @@
 @value styles: "../../../styles/styles.module.css";
-
 @value backgroundPrimary, backgroundSecondary, backgroundSecondaryDark, borderRadiusAppSmall, backgroundSecondaryLight, borderRadiusApp, paddingApp, primary, textColor, primaryDark, primaryLight from styles;
 
 .wrapper {

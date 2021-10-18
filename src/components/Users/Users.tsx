@@ -10,7 +10,7 @@ type propsType = {
   totalCount: number,
   pageSize: number,
   pageNumber: number,
-  authId: number,
+  authId: number | null,
   isPreloader: boolean,
   isFollowInProgress: Array<number>,
   follow: (userId: number) => void,

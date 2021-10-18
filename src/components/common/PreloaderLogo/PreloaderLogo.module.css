@@ -1,3 +1,7 @@
+@value styles: "../../../styles/styles.module.css";
+@value backgroundPrimary, backgroundSecondary, backgroundSecondaryDark,backgroundSecondaryLight from styles;
+
+
 .wrapper {
     width: 100vw;
     height: 100vh;
@@ -16,14 +20,14 @@
     align-items: center;
     color: white;
     border-radius: 15px;
-    background: purple;
-    box-shadow: 0 -200px 100px -120px #dc91dc inset;
-    animation: background 1.5s infinite alternate;
+    background: backgroundSecondaryDark;
+    box-shadow: 0 -200px 100px -120px backgroundPrimary inset;
+    animation: background 3s infinite alternate;
 }
 
 @keyframes background {
     50% {
-        background: purple;
-        box-shadow: 0 -200px 100px -120px #f86bf8 inset;
+        background: backgroundSecondaryLight;
+        box-shadow: 0 -200px 100px -120px backgroundSecondary inset;
     }
 }

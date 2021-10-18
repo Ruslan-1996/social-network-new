@@ -12,7 +12,7 @@ export type authUserType = {
 }
 
 let initialState = {
-    id: NaN,
+    id: null as number | null,
     login: '',
     email: '',
     captcha: '',
