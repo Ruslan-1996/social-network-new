@@ -1,0 +1,79 @@
+@value styles: "../../../styles/styles.module.css";
+@value backgroundPrimary, backgroundSecondary, borderRadiusApp, paddingApp from styles;
+
+.wrapper {
+    display: grid;
+    background-color: backgroundPrimary;
+    grid-template-columns: 90px 1fr;
+    grid-template-areas:
+      "avatar bio"
+      "aboutUser aboutUser"
+}
+
+.wrapperCrop {
+    background-color: white;
+    padding: paddingApp;
+    border-radius: borderRadiusApp;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.avatar {
+    grid-area: avatar;
+}
+
+.bio {
+    padding-top: paddingApp;
+    grid-area: bio;
+    background-color: backgroundPrimary;
+}
+
+.aboutUser {
+    grid-area: aboutUser;
+    background-color: backgroundPrimary;
+    padding: paddingApp;
+}
+
+.aboutUserItem {
+    margin-bottom: 10px;
+    line-height: 16px;
+    word-wrap: anywhere;
+}
+
+.name {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+@media (min-width: 600px) {
+    .wrapper {
+        grid-template-columns: 1fr 4fr;
+        grid-template-areas:
+      "avatar bio"
+      "avatar aboutUser"
+    }
+
+    .bio,
+    .aboutUser{
+        padding: 10px
+    }
+}
+
+@media (min-width: 800px) {
+    .wrapper {
+        background-color: backgroundSecondary;
+    }
+
+    .bio,
+    .aboutUser{
+        margin-left: 10px;
+    }
+
+    .bio {
+        border-radius: borderRadiusApp borderRadiusApp 0 0;
+    }
+
+    .aboutUser{
+        border-radius: 0 0 borderRadiusApp borderRadiusApp;
+    }
+}

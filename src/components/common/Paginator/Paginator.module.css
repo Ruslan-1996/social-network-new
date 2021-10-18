@@ -1,0 +1,84 @@
+@value colors: "../../../styles/styles.module.css";
+@value backgroundSecondary, backgroundSecondaryLight, backgroundSecondaryDark, primary, textColor, primaryLight, primaryDark, backgroundPrimary from colors;
+
+.paginatorWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.pages {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.lastButton,
+.nextButton {
+    width: 50px;
+    background-color: primary;
+    color: backgroundPrimary;
+    border: none;
+}
+
+.nextButton:disabled,
+.lastButton:disabled {
+    color: backgroundSecondary;
+    background-color: primaryLight;
+    opacity: 0.8;
+}
+
+.nextButton:active,
+.lastButton:active {
+    background-color: primaryDark;
+}
+
+
+.lastButton,
+.nextButton,
+.button {
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    margin: 1px;
+    cursor: pointer;
+}
+
+.lastButton {
+    border-radius: 3px 0 0 3px;
+}
+
+.nextButton {
+    border-radius: 0 3px 3px 0;
+}
+
+.button {
+    width: 41px;
+    background-color: backgroundPrimary;
+    border: 2px solid primary;
+    color: primary;
+}
+
+.button.active {
+    background-color: primary;
+    color: backgroundPrimary;
+}
+
+.button:hover {
+    background-color: backgroundSecondary;
+}
+
+.disabled,
+.disabledWrapper .button{
+    border: none;
+    background: backgroundSecondaryDark;
+    box-shadow: 0 -200px 100px -120px backgroundPrimary inset;
+    animation: background 3s infinite alternate;
+}
+
+@keyframes background {
+    50% {
+        background: backgroundSecondaryLight;
+        box-shadow: 0 -200px 100px -120px backgroundSecondary inset;
+    }
+}

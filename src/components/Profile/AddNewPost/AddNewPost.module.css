@@ -1,0 +1,51 @@
+@value styles: "../../../styles/styles.module.css";
+@value backgroundPrimary, backgroundSecondary, borderRadiusApp, paddingApp, primary, primaryDark, primaryLight from styles;
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    background-color: backgroundPrimary;
+    padding: paddingApp;
+    margin-top: 1px;
+}
+
+.textarea {
+    width: 100%;
+    height: 80px;
+    resize: none;
+    outline: none;
+    box-sizing: border-box;
+    border: none
+}
+
+.textarea:focus {
+    border-bottom: 1px solid backgroundSecondary;
+}
+
+.button {
+    margin-top: 10px;
+    width: 100px;
+    height: 30px;
+    border-radius: 3px;
+    background-color: primary;
+    border: 0;
+    color: backgroundPrimary;
+}
+
+.button:disabled {
+    color: backgroundSecondary;
+    background-color: primaryLight;
+    opacity: 0.8;
+}
+
+.button:active {
+    background-color: primaryDark;
+}
+
+@media (min-width: 800px) {
+    .wrapper {
+        margin-top: 10px;
+        border-radius: borderRadiusApp;
+    }
+}

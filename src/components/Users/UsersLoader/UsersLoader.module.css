@@ -1,0 +1,58 @@
+@value styles: "../../../styles/styles.module.css";
+
+@value backgroundPrimary, backgroundSecondary, backgroundSecondaryDark, backgroundSecondaryLight from styles;
+
+.wrapper {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 9fr;
+    word-wrap: anywhere;
+}
+
+.rightSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 20px;
+}
+
+.photoBlock,
+.button,
+.name,
+.status{
+    background: backgroundSecondaryDark;
+    box-shadow: 0 -200px 100px -120px backgroundPrimary inset;
+    animation: background 3s infinite alternate;
+}
+
+
+.photoBlock {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button{
+    margin-top: 10px;
+    width: 100%;
+    height: 30px;
+    border: none;
+}
+
+
+.name,
+.status {
+    width: 30%;
+    height: 22px;
+    margin-top: 3px;
+}
+
+@keyframes background {
+    50% {
+        background: backgroundSecondaryLight;
+        box-shadow: 0 -200px 100px -120px backgroundSecondary inset;
+    }
+}

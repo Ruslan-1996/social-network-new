@@ -1,0 +1,23 @@
+@value colors: "../../styles/styles.module.css";
+
+@value backgroundPrimary, borderRadiusApp, paddingApp, textColor from colors;
+
+.wrapper {
+    min-height: calc(100vh - 100px);
+    background-color: backgroundPrimary;
+    box-sizing: border-box;
+    padding: paddingApp;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+}
+
+
+@media (min-width: 800px) {
+    .wrapper {
+        border-radius: borderRadiusApp;
+    }
+}

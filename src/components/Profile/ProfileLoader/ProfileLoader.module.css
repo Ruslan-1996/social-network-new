@@ -1,0 +1,160 @@
+@value styles: "../../../styles/styles.module.css";
+
+@value backgroundPrimary, backgroundSecondary, backgroundSecondaryDark, borderRadiusAppSmall, backgroundSecondaryLight, borderRadiusApp, paddingApp, primary, textColor, primaryDark, primaryLight from styles;
+
+.wrapper {
+}
+
+.description {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    grid-template-areas:
+      "avatar bio"
+      "aboutUser aboutUser"
+}
+
+.userPhoto,
+.item,
+.textarea,
+.button,
+.photoBlockPost,
+.userNamePost,
+.postText,
+.likesBlock {
+    background: backgroundSecondaryDark;
+    box-shadow: 0 -200px 100px -120px backgroundPrimary inset;
+    animation: background 3s infinite alternate;
+}
+
+.photoBlock {
+    grid-area: avatar;
+    padding: paddingApp;
+    background-color: backgroundPrimary;
+}
+
+.userPhoto {
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+}
+
+@keyframes background {
+    50% {
+        background: backgroundSecondaryLight;
+        box-shadow: 0 -200px 100px -120px backgroundSecondary inset;
+    }
+}
+
+.bio {
+    grid-area: bio;
+    background-color: backgroundPrimary;
+    padding: paddingApp;
+}
+
+.aboutUser {
+    grid-area: aboutUser;
+    background-color: backgroundPrimary;
+    padding: paddingApp;
+}
+
+.item {
+    height: 16px;
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+.addPost {
+    box-sizing: border-box;
+    margin-top: 1px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    background-color: backgroundPrimary;
+}
+
+.textarea {
+    width: 100%;
+    height: 80px;
+
+}
+
+.button {
+    margin-top: 10px;
+    width: 100px;
+    height: 30px;
+    border-radius: borderRadiusAppSmall;
+}
+
+.posts {
+    margin-top: 1px;
+}
+
+.post {
+    margin-bottom: 1px;
+    padding: paddingApp;
+    background-color: backgroundPrimary;
+}
+
+.wrapperItemPost {
+    display: grid;
+    grid-template-columns: 70px 14fr;
+    margin-bottom: 15px;
+}
+
+.photoBlockPost {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-color: backgroundPrimary;
+}
+
+.userNamePost {
+    margin-bottom: 5px;
+    font-weight: bold;
+    height: 16px;
+    width: 200px;
+    background-color: backgroundPrimary;
+}
+
+.postText{
+    margin: 0;
+    height: 16px;
+    width: 200px;
+    background-color: backgroundPrimary;
+}
+
+.likesBlock {
+    display: inline-block;
+    border-radius: 30px;
+    height: 31px;
+    width: 51px;
+    background-color: backgroundPrimary;
+}
+
+@media (min-width: 600px) {
+    .description {
+        grid-template-columns: 1fr 4fr;
+        grid-template-areas:
+      "avatar bio"
+      "avatar aboutUser"
+    }
+
+    .userPhoto {
+        width: 200px;
+        height: 200px;
+        border-radius: borderRadiusAppSmall;
+    }
+}
+
+@media (min-width: 800px) {
+    .addPost {
+        margin-top: 10px;
+        border-radius: borderRadiusApp;
+    }
+
+    .post {
+        margin-top: 10px;
+        border-radius: borderRadiusApp;
+    }
+}

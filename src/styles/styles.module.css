@@ -1,0 +1,23 @@
+@value primary: #4545ba;
+@value primaryLight: #5757e8;
+@value primaryDark: #2f2f82;
+@value backgroundPrimary: white;
+@value backgroundSecondary: #d1dff6;
+@value backgroundSecondaryLight: #D1DFF680;
+@value backgroundSecondaryDark: #9db3ff;
+@value errorColor: #ff3333;
+@value colorData: #4d4e66;
+@value borderRadiusApp: 5px;
+@value borderRadiusAppSmall: 3px;
+@value paddingApp: 10px;
+@value containerMin: 320px;
+@value containerSizeMobile: 100%;
+@value containerSizeTab: 100%;
+@value containerSizeLaptop: 900px;
+@value containerSizeDesktop: 1200px;
+@value textColor: black;
+
+
+/*    body{*/
+/*    color: #4d4e66;*/
+/*}*/

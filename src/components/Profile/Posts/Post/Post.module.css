@@ -1,0 +1,85 @@
+@value styles: "../../../../styles/styles.module.css";
+
+@value backgroundPrimary, backgroundSecondary, borderRadiusApp, colorData, paddingApp, primary, primaryDark, primaryLight, backgroundSecondaryLight from styles;
+
+.item {
+    background-color: backgroundPrimary;
+    margin-bottom: 1px;
+    min-height: 50px;
+    padding: paddingApp;
+    word-wrap: anywhere;
+}
+
+.wrapperItem {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    margin-bottom: 15px;
+}
+
+.photoBlock {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.photo {
+    width: 100%;
+    border-radius: 100%;
+}
+
+.nullPhoto {
+    width: 50%;
+}
+
+.userName {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.date {
+    font-size: 12px;
+    font-weight: 500;
+    color: colorData;
+}
+
+.post {
+    margin-left: paddingApp;
+}
+
+.bio {
+    min-height: 50px;
+}
+
+.postText{
+    font-size: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.likesBlock {
+    padding: 5px 10px;
+    display: inline-block;
+    background-color: backgroundSecondaryLight;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.countLikes {
+    padding-left: 3px;
+}
+
+.likesBlock:hover {
+    background-color: backgroundSecondary;
+}
+
+@media (min-width: 800px) {
+    .item {
+        margin-top: 10px;
+        border-radius: borderRadiusApp;
+    }
+}
+

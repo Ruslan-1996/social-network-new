@@ -1,0 +1,25 @@
+@value styles: "../../../styles/styles.module.css";
+@value backgroundPrimary, backgroundSecondary, borderRadiusApp, paddingApp, primary, primaryDark, primaryLight from styles;
+
+.button {
+    margin-top: 10px;
+    width: 100px;
+    height: 30px;
+    font-size: 14px;
+    border-radius: 3px;
+    background-color: primary;
+    border: 0;
+    color: backgroundPrimary;
+    margin-right: paddingApp;
+    cursor: pointer;
+}
+
+.button:disabled {
+    color: backgroundSecondary;
+    background-color: primaryLight;
+    opacity: 0.8;
+}
+
+.button:active {
+    background-color: primaryDark;
+}

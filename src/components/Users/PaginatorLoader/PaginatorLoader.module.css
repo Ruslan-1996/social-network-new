@@ -1,0 +1,44 @@
+@value styles: "../../../styles/styles.module.css";
+
+@value backgroundPrimary, backgroundSecondary, backgroundSecondaryDark, backgroundSecondaryLight from styles;
+
+.paginatorWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.lastButton,
+.nextButton {
+    width: 50px;
+}
+
+.lastButton,
+.nextButton,
+.button {
+    height: 20px;
+    box-sizing: border-box;
+    border: none;
+    margin: 1px;
+    background: backgroundSecondaryDark;
+    box-shadow: 0 -200px 100px -120px backgroundPrimary inset;
+    animation: background 3s infinite alternate;
+}
+
+.button {
+    width: 41px;
+}
+
+.lastButton {
+    border-radius: 3px 0 0 3px;
+}
+
+.nextButton {
+    border-radius: 0 3px 3px 0;
+}
+
+@keyframes background {
+    50% {
+        background: backgroundSecondaryLight;
+        box-shadow: 0 -200px 100px -120px backgroundSecondary inset;
+    }
+}

@@ -1,0 +1,16 @@
+@value colors: "../../styles/styles.module.css";
+@value backgroundPrimary, paddingApp, borderRadiusApp from colors;
+
+.wrapper {
+    min-height: calc(100vh - 120px);
+    background-color: backgroundPrimary;
+    padding: paddingApp;
+}
+
+@media (min-width: 800px) {
+    .wrapper {
+        background-color: backgroundPrimary;
+        padding: paddingApp;
+        border-radius: borderRadiusApp;
+    }
+}

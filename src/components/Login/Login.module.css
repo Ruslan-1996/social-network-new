@@ -1,0 +1,105 @@
+@value colors: "../../styles/styles.module.css";
+
+@value backgroundPrimary, primary, backgroundSecondary, primaryLight, primaryDark, borderRadiusApp, paddingApp, textColor, errorColor from colors;
+
+.wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: calc(100vh - 120px);
+    background-color: backgroundPrimary;
+    border-radius: borderRadiusApp;
+    padding: paddingApp;
+}
+
+.mobileInfo {
+    display: none;
+}
+
+.inputBlock {
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+.inputCheckbox {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-bottom: 10px;
+}
+
+.inputCheckboxTitle {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.passwordBlock {
+    position: relative;
+}
+
+.changeTypePassword {
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    top: 2.5px;
+}
+
+.button {
+    background-color: primary;
+    border: 0;
+    height: 100%;
+    font-size: 20px;
+    color: backgroundPrimary;
+    border-radius: 3px;
+    padding: 5px 10px;
+    width: 100%;
+}
+
+.button:disabled {
+    color: backgroundSecondary;
+    background-color: primaryLight;
+    opacity: 0.8;
+}
+
+.button:active {
+    background-color: primaryDark;
+}
+
+.errorMessage {
+    color: errorColor;
+    margin-bottom: 10px;
+}
+
+@media (min-width: 600px) {
+    .mobileInfo {
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        border-right: 1px solid backgroundSecondary;
+    }
+
+    .mobileImages {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .mobileInfoItem {
+        width: 160px;
+    }
+
+    .mobileInfoItem img {
+        width: 100%;
+    }
+
+    .mobileInfoTitle {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 960px) {
+    .mobileInfoItem {
+        width: 200px;
+    }
+}
