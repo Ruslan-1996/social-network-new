@@ -50,7 +50,7 @@ const CropeImage = (props) => {
       </div>
     </div>
   )
-debugger
+
   return (<div>
       <DropNCrop onChange={onChange} value={getImage} cropperOptions={{viewMode: 1, aspectRatio: 1}}
                  instructions={instruction} />
