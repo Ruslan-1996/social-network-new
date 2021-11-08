@@ -1,0 +1,13 @@
+@value colors: "../../../../styles/styles.module.css";
+@value backgroundSecondaryLight from colors;
+
+.wrapper {
+    display: flex;
+}
+
+.message {
+    background-color: backgroundSecondaryLight;
+    border-radius: 7px 7px 7px 0;
+    padding: 5px;
+    margin: 7px 7px 0 7px;
+}

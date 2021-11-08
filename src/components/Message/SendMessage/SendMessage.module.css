@@ -1,0 +1,45 @@
+@value colors: "../../../styles/styles.module.css";
+@value backgroundPrimary, backgroundSecondary, textColor, primary, primaryLight, primaryDark from colors;
+
+.wrapper {
+  width: 100%;
+  align-items: stretch;
+  margin-top: 10px;
+  height: 60px;
+  padding: 7px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 9fr 1fr;
+  border-top: 1px solid backgroundSecondary;
+}
+
+.textArea {
+  resize: none;
+  outline: none;
+  border: none;
+}
+
+.textArea:focus {
+  border-bottom: 1px solid backgroundSecondary;
+}
+
+.button {
+  background-color: primary;
+  border: 0;
+  height: 100%;
+  margin-left: 10px;
+  font-size: 25px;
+  color: backgroundPrimary;
+  border-radius: 3px;
+}
+
+.button:disabled {
+  color: backgroundSecondary;
+  background-color: primaryLight;
+  opacity: 0.8;
+}
+
+.button:active {
+  background-color: primaryDark;
+}
+

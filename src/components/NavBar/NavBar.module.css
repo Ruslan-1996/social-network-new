@@ -1,0 +1,70 @@
+@value colors: "../../styles/styles.module.css";
+
+@value backgroundSecondary, primary, textColor, backgroundSecondaryDark, primaryLight, borderRadiusAppSmall from colors;
+
+.wrapper {
+    display: flex;
+    height: 100%;
+}
+
+.navLink {
+    width: 20%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 5px 20px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.navLink:hover {
+    background-color: backgroundSecondaryDark;
+}
+
+.active {
+    background-color: primaryLight;
+}
+
+.navIcon {
+    width: 30px;
+    color: primary;
+    /*font-size: 16px;*/
+}
+
+.nameLink {
+    color: textColor;
+    font-size: 12px
+}
+
+.navIcon,
+.nameLink {
+    display: flex;
+    justify-content: center;
+    transition: 700ms;
+}
+
+.active .navIcon {
+    font-size: 25px;
+}
+
+@media (min-width: 800px) {
+    .navLink {
+        width: 100%;
+        border-radius: borderRadiusAppSmall;
+    }
+
+    .wrapper {
+        flex-direction: column;
+    }
+
+    .navLink {
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .active .navIcon {
+        font-size: 16px;
+    }
+}
