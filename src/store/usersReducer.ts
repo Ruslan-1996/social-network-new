@@ -1,5 +1,4 @@
 import { usersAPI } from "../api/api";
-import { AppStateType } from './store';
 
 const FOLLOW = 'usersReducer/FOLLOW'
 const UNFOLLOW = 'usersReducer/UNFOLLOW'

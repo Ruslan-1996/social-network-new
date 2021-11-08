@@ -10,9 +10,10 @@ type propsType = {
 }
 
 const AddNewPost: React.FC<propsType> = (props) => {
+  const {updatePostText, addPost, newPostText} = props
 
   const onKeyDown = (e: any) => {
-    if(e.keyCode === 13) {
+    if (e.key === 'Enter') {
       e.currentTarget.innerHTML = e.currentTarget.innerHTML + '\r\n';
     }
   }
@@ -20,9 +21,9 @@ const AddNewPost: React.FC<propsType> = (props) => {
   return (
     <div className={s.wrapper}>
             <textarea className={s.textarea} onKeyDown={onKeyDown} placeholder='input text post'
-                      onChange={(e) => props.updatePostText(e.target.value)}
-                      value={props.newPostText}/>
-      <button className={s.button} disabled={!props.newPostText} onClick={props.addPost}>
+                      onChange={(e) => updatePostText(e.target.value)}
+                      value={newPostText}/>
+      <button className={s.button} disabled={!newPostText} onClick={addPost}>
         <FontAwesomeIcon icon={faShare}/>
       </button>
     </div>

@@ -10,7 +10,6 @@ type propsType = {
 const ProfileStatus: React.FC<propsType> = (props) => {
 
     const [status, setStatus] = useState(props.status)
-
     const [editMode, setEditMode] = useState(false)
 
     useEffect(() => {
@@ -26,8 +25,10 @@ const ProfileStatus: React.FC<propsType> = (props) => {
     }
 
     const updateStatus = () => {
-        props.updateStatus(status)
-        setStatus(props.status)
+        if(props.status !== status) {
+            props.updateStatus(status)
+            setStatus(props.status)
+        }
         setEditMode(false)
     }
 
@@ -35,7 +36,7 @@ const ProfileStatus: React.FC<propsType> = (props) => {
         <div className={s.wrapper}>
             {props.isMeProfile ?
                 (!editMode ?
-                        <span onDoubleClick={activeEditMode}>{props.status ? props.status : 'Введите статус'}</span>
+                        <span onDoubleClick={activeEditMode} onTouchStart={activeEditMode}>{props.status ? props.status : 'Введите статус'}</span>
                         : <>
                             <input type="text" value={status} onChange={changeStatus}/>
                             <button onClick={updateStatus}>ok</button>

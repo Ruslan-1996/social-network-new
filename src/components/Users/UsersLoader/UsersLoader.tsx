@@ -14,8 +14,8 @@ const UsersLoader: React.FC<PropsType> = ({children}) => {
 
   return (
     <div>
-      {arrayPages.map(n => (
-        <div className={s.wrapper}>
+      {arrayPages.map((n, i) => (
+        <div className={s.wrapper} key={i}>
           <div className={s.leftSection}>
             <div className={s.photoBlock}></div>
             <button className={s.button}>

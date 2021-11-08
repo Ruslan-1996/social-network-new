@@ -17,13 +17,13 @@ const PaginatorLoader: React.FC<PropsType> = ({sizePaginator, children}) => {
     <div>
       <div className={s.paginatorWrapper}>
         <div className={s.lastButton}></div>
-        {arrayPages.map(n => <div className={s.button}></div>)}
+        {arrayPages.map((n, i) => <div className={s.button} key={i}></div>)}
         <div className={s.nextButton}></div>
       </div>
       {children}
       <div className={s.paginatorWrapper}>
         <div className={s.lastButton}></div>
-        {arrayPages.map(n => <div className={s.button}></div>)}
+        {arrayPages.map((n, i) => <div className={s.button} key={i}></div>)}
         <div className={s.nextButton}></div>
       </div>
     </div>

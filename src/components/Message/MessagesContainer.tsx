@@ -1,4 +1,3 @@
-import React from 'react';
 import {connect} from "react-redux";
 import {AppStateType} from "../../store/store";
 import {
@@ -11,7 +10,6 @@ import Messages from "./Messages";
 import {messages, newMessageText, usersInMessage} from "../../store/messageSelector";
 import {compose} from "redux";
 import withAuthRedirect from "../../hoc/withAuthRedirect/withAuthRedirect";
-
 
 type mapStateToPropsType = {
     messages: Array<messagesType>,

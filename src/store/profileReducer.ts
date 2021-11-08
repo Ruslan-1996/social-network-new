@@ -8,19 +8,12 @@ const TOGGLE_PRELOADER = 'profileReducer/TOGGLE_PRELOADER'
 const GET_STATUS = 'profileReducer/GET_STATUS'
 const CHANGE_USER_PHOTO = 'profileReducer/CHANGE_USER_PHOTO'
 
-export type dataTimeType = {
-  years: number,
-  month: number,
-  day: number,
-  hour: number,
-  minute: number
-}
 
 export type postType = {
   post: string,
   id: number,
   likes: number
-  dataTime: dataTimeType
+  dataTime: number
 }
 
 type userPhotosType = {
@@ -49,15 +42,15 @@ export type userType = {
 }
 
 let initialState = {
-  user: {} as userType,
+  user: {} as userType || null,
   status: '',
-  posts: [{post: 'Hi', id: 1, likes: 2, dataTime: {years: 2020, month: 0, day: 8, hour: 17, minute: 45}},
-    {post: 'Boy', id: 2, likes: 5, dataTime: {years: 2020, month: 11, day: 25, hour: 17, minute: 45}},
+  posts: [{post: 'Hi', id: 1, likes: 2, dataTime: 1606315520000},
+    {post: 'Boy', id: 2, likes: 5, dataTime: 1578494720000},
     {
       post: 'Well',
       id: 3,
       likes: 1,
-      dataTime: {years: 2021, month: 9, day: 9, hour: 14, minute:52}
+      dataTime: 1599576320000
     },] as Array<postType>,
   newPostText: '',
   isPreloader: false
@@ -75,13 +68,8 @@ const profileReducer = (state = initialState, action: actionType): initialStateT
         post: state.newPostText,
         id: state.posts[state.posts.length - 1].id + 1,
         likes: 0,
-        dataTime: {
-          years: currentData.getFullYear(),
-          month: currentData.getMonth(),
-          day: currentData.getDate(),
-          hour: currentData.getHours(),
-          minute: currentData.getMinutes()
-        }
+        // @ts-ignore
+        dataTime: Date.parse(currentData)
       }
       state.newPostText = ''
       return {...state, posts: [...state.posts, post]};
@@ -211,7 +199,7 @@ type changeUserPhotoSuccessType = {
   photo: userPhotosType
 }
 
-const changeUserPhotoSuccessType = (photo: userPhotosType): changeUserPhotoSuccessType => {
+const changeUserPhotoSuccess = (photo: userPhotosType): changeUserPhotoSuccessType => {
   return {
     type: CHANGE_USER_PHOTO,
     photo
@@ -221,7 +209,7 @@ const changeUserPhotoSuccessType = (photo: userPhotosType): changeUserPhotoSucce
 export const changeUserPhoto = (file: File) => async (dispatch: any) => {
   const response = await profileAPI.changeUserPhoto(file)
   if (response.data.resultCode === 0) {
-    dispatch(changeUserPhotoSuccessType(response.data.data.photos))
+    dispatch(changeUserPhotoSuccess(response.data.data.photos))
     dispatch(getPhotoAuthUser(response.data.data.photos.small))
   }
 }

@@ -23,7 +23,7 @@ type otherPropsType = {
 }
 
 const ProfileContainer: React.FC<propsType> = (props) => {
-  const {getProfile, getStatus, isPreloader} = props
+  const {getProfile, getStatus, user, isPreloader} = props
 
   let userId = props.match.params.userId
   if (!userId) {
@@ -38,7 +38,15 @@ const ProfileContainer: React.FC<propsType> = (props) => {
   useEffect(() => {
     getProfile(userId)
     getStatus(userId)
-  }, [userId])
+  }, [userId, getProfile, getStatus])
+
+  useEffect(() => {
+    function changeDocumentTitle(title : string) {
+      document.title = title
+    }
+    changeDocumentTitle(user.fullName)
+    return () => changeDocumentTitle('Social Network')
+  }, [user.fullName])
 
   if (!isPreloader) {
     return <ProfileLoader/>

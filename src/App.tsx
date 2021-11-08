@@ -16,9 +16,8 @@ import store from './store/store';
 import Setting from './components/Setting/Setting';
 import NotFound from './components/NotFound/NotFound';
 
-type propsType = {}
 
-const App: React.FC<propsType> = (props) => {
+const App = () => {
 
   const [editModeLogout, setEditModeLogout] = useState(false)
 
@@ -28,7 +27,7 @@ const App: React.FC<propsType> = (props) => {
 
   useEffect(() => {
     dispatch(appInitialized())
-  }, [])
+  }, [dispatch])
 
   if (!isInitialized) {
     return <PreloaderLogo/>

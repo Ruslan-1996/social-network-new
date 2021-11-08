@@ -3,7 +3,6 @@ import s from './Post.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons';
 import PhotoNUll from '../../../common/PhotoNull/PhotoNull';
-import { dataTimeType } from '../../../../store/profileReducer'
 import SendMessageTime from '../../../common/SendMessageTime/SendMessageTime';
 
 type propsType = {
@@ -12,7 +11,7 @@ type propsType = {
   userPhoto: string | null
   userName: string
   likes: number
-  dataTime: dataTimeType
+  dataTime: number
 }
 
 const Post: React.FC<propsType> = (props) => {
@@ -23,7 +22,7 @@ const Post: React.FC<propsType> = (props) => {
       <div className={s.wrapperItem}>
         <div className={s.photoBlock}>
           {userPhoto ?
-            <img src={userPhoto} className={s.photo}/>
+            <img src={userPhoto} className={s.photo} alt='userPhoto'/>
             : <PhotoNUll size='2x' isCirlce={true}/>}
         </div>
         <div className={s.post}>

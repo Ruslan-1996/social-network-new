@@ -4,15 +4,18 @@
 .paginatorWrapper {
     display: flex;
     align-items: center;
+    min-width: 100%;
 }
 
 .pages {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    min-width: calc(100% - 100px);
 }
 
 .lastButton,
 .nextButton {
+    align-self: stretch;
     width: 50px;
     background-color: primary;
     color: backgroundPrimary;
@@ -35,7 +38,6 @@
 .lastButton,
 .nextButton,
 .button {
-    height: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,7 +55,7 @@
 }
 
 .button {
-    width: 41px;
+    height: 20px;
     background-color: backgroundPrimary;
     border: 2px solid primary;
     color: primary;
@@ -80,5 +82,17 @@
     50% {
         background: backgroundSecondaryLight;
         box-shadow: 0 -200px 100px -120px backgroundSecondary inset;
+    }
+}
+
+@media (min-width: 600px) {
+    .pages {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        min-width: 0;
+    }
+
+    .button {
+        width: 41px;
     }
 }

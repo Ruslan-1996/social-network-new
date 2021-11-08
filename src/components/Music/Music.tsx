@@ -6,7 +6,7 @@ const Music = () => {
     <div className={s.wrapper}>
       <div className={s.title}>
         Listen to music on yandex music
-        <a href='https://music.yandex.by/home' target='_blank'><YandexIcon className={s.yandexIcon}/></a>
+        <a href='https://music.yandex.by/home' target='_blank' rel="noopener noreferrer"><YandexIcon className={s.yandexIcon}/></a>
       </div>
     </div>
   )

@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import s from './Paginator.module.css'
 
 type PropsType = {
@@ -32,7 +32,8 @@ const Paginator: React.FC<PropsType> = React.memo((props) => {
     }
 
     return arrayPages
-  }, [sizePaginator])
+  }, [sizePaginator, pagesNumber])
+
 
   const onNext = () => {
     setCount(prevState => prevState + 1)

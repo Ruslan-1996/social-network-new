@@ -34,7 +34,7 @@ const UsersContainer = () => {
 
   useEffect(() => {
     dispatch(getUsers(pageSize, pageNumber))
-  }, [pageNumber])
+  }, [pageNumber, pageSize, dispatch])
 
   if (totalCount === 0) {
     return (

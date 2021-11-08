@@ -30,7 +30,7 @@ const User: React.FC<propsType> = (props) => {
   return (
     <div className={s.wrapper}>
       <NavLink to={`profile/${props.id}`} className={s.photoBlock}>
-        {props.photo ? <img className={s.photo} src={props.photo}/>
+        {props.photo ? <img className={s.photo} src={props.photo} alt='userPhoto'/>
           : <div className={s.photoNull} style={{borderRadius: '100px'}}>
             <FontAwesomeIcon icon={faUser} color={'white'}/>
           </div>}

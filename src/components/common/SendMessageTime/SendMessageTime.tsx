@@ -1,8 +1,12 @@
 import s from '../../Profile/Posts/Post/Post.module.css';
-import React from 'react';
+import React, { FC } from 'react';
 
-const SendMessageTime = (props:any) => {
-  const {day, years, month, hour, minute} = props.dataTime
+type PropsType = {
+  dataTime: number
+}
+
+const SendMessageTime: FC<PropsType> = React.memo((props) => {
+  const dataTime = new Date(props.dataTime)
 
   const months= ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
@@ -10,31 +14,31 @@ const SendMessageTime = (props:any) => {
 
   return (
     <div className={s.date}>
-      {(day === currentTime.getDate() && month === currentTime.getMonth() &&
-        years === currentTime.getFullYear() && hour === currentTime.getHours() &&
-        minute === currentTime.getMinutes())
+      {(dataTime.getDate() === currentTime.getDate() && dataTime.getMonth() === currentTime.getMonth() &&
+        dataTime.getFullYear() === currentTime.getFullYear() && dataTime.getHours() === currentTime.getHours() &&
+        dataTime.getMinutes() === currentTime.getMinutes())
         ? <>posted just now</> :
-        (day === currentTime.getDate() && month === currentTime.getMonth() &&
-          years === currentTime.getFullYear() && (hour === currentTime.getHours()
-            || hour === currentTime.getHours() - 1))
+        (dataTime.getDate() === currentTime.getDate() && dataTime.getMonth() === currentTime.getMonth() &&
+          dataTime.getFullYear() === currentTime.getFullYear() && (dataTime.getHours() === currentTime.getHours()
+            || dataTime.getHours() === currentTime.getHours() - 1))
           ?
-          <>posted {((hour === currentTime.getHours() && currentTime.getMinutes() - minute))
-          || ((hour === currentTime.getHours() - 1) && (60 - minute + currentTime.getMinutes()))} minutes
+          <>posted {((dataTime.getHours() === currentTime.getHours() && currentTime.getMinutes() - dataTime.getMinutes()))
+          || ((dataTime.getHours() === currentTime.getHours() - 1) && (60 - dataTime.getMinutes() + currentTime.getMinutes()))} minutes
             ago</> :
-          (day === currentTime.getDate() && month === currentTime.getMonth() &&
-            years === currentTime.getFullYear())
+          (dataTime.getDate() === currentTime.getDate() && dataTime.getMonth() === currentTime.getMonth() &&
+            dataTime.getFullYear() === currentTime.getFullYear())
             ? <>
               <span>today in </span>
-              <span>{hour < 10 && "0"}{hour}:</span>
-              <span>{minute < 10 && "0"}{minute}</span>
+              <span>{dataTime.getHours() < 10 && "0"}{dataTime.getHours()}:</span>
+              <span>{dataTime.getMinutes() < 10 && "0"}{dataTime.getMinutes()}</span>
             </>
             : <>
-              <span>{day} </span>
-              <span>{months[month]} </span>
-              <span>{years}</span>
+              <span>{dataTime.getDate()} </span>
+              <span>{months[dataTime.getMonth()]} </span>
+              <span>{dataTime.getFullYear()}</span>
             </>}
     </div>
   )
-}
+})
 
 export default SendMessageTime
