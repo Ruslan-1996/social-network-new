@@ -10,8 +10,7 @@ const CropeImage = (props) => {
   const [getImage, setGetImage] = useState(null)
 
   function dataURLtoFile(dataUrl, fileName) {
-
-    var arr = dataUrl.split(','),
+    let arr = dataUrl.split(','),
       mime = arr[0].match(/:(.*?);/)[1],
       bstr = atob(arr[1]),
       n = bstr.length,

@@ -49,40 +49,46 @@ const Login = () => {
         </div>
         <div className={s.mobileInfoTitle}>Use our social network on mobile devices.</div>
       </div>
-      <Form
-        onSubmit={onSubmit}
-        render={({handleSubmit}) => (
-          <form onSubmit={handleSubmit}>
-            <h2>Log In</h2>
-            <div className={s.inputBlock}>
-              <Field name="email" component={FieldCreator} validate={required} typeField={"input"}
-                     placeholder="email"/>
-            </div>
-            <div className={cn(s.inputBlock, s.passwordBlock)}>
-              <Field name="password" component={FieldCreator} typeField={"input"}
-                     type={typePasswordEditMode ? "password" : "text"}
-                     placeholder="password" style={{paddingRight: '35px'}}/>
-              <div className={s.changeTypePassword} onClick={onTogglePassword}>
-                {typePasswordEditMode ? <FontAwesomeIcon icon={faEye}/> : <FontAwesomeIcon icon={faEyeSlash}/>}
-              </div>
-            </div>
-            <div className={s.inputCheckbox}>
-              <Field name="rememberMe" component={FieldCreatorCheckbox} typeField={"input"} type="checkbox"/>
-              <div className={s.inputCheckboxTitle}>remember me</div>
-            </div>
-            {captcha && (
+      <div>
+        <Form
+          onSubmit={onSubmit}
+          render={({handleSubmit}) => (
+            <form onSubmit={handleSubmit}>
+              <h2>Log In</h2>
               <div className={s.inputBlock}>
-                <div>
-                  <img src={captcha} alt=""/>
-                </div>
-                <Field name='captcha' component={FieldCreator} typeField={"input"}/>
+                <Field name="email" component={FieldCreator} validate={required} typeField={"input"}
+                       placeholder="email"/>
               </div>
-            )}
-            {errorMessage && <div className={s.errorMessage}>{errorMessage}</div>}
-            <button type="submit" className={s.button}>Log In</button>
-          </form>
-        )}
-      />
+              <div className={cn(s.inputBlock, s.passwordBlock)}>
+                <Field name="password" component={FieldCreator} typeField={"input"}
+                       type={typePasswordEditMode ? "password" : "text"}
+                       placeholder="password" style={{paddingRight: '35px'}}/>
+                <div className={s.changeTypePassword} onClick={onTogglePassword}>
+                  {typePasswordEditMode ? <FontAwesomeIcon icon={faEye}/> : <FontAwesomeIcon icon={faEyeSlash}/>}
+                </div>
+              </div>
+              <div className={s.inputCheckbox}>
+                <Field name="rememberMe" component={FieldCreatorCheckbox} typeField={"input"} type="checkbox"/>
+                <div className={s.inputCheckboxTitle}>remember me</div>
+              </div>
+              {captcha && (
+                <div className={s.inputBlock}>
+                  <div>
+                    <img src={captcha} alt=""/>
+                  </div>
+                  <Field name='captcha' component={FieldCreator} typeField={"input"}/>
+                </div>
+              )}
+              {errorMessage && <div className={s.errorMessage}>{errorMessage}</div>}
+              <button type="submit" className={s.button}>Log In</button>
+            </form>
+          )}
+        />
+        <div className={s.logUp}>
+          Don't have an account? <a href="https://social-network.samuraijs.com/signUp" target='_blank'
+                                    rel="noopener noreferrer">Sign up</a>
+        </div>
+      </div>
     </div>
   )
 }

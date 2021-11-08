@@ -70,6 +70,16 @@
     margin-bottom: 10px;
 }
 
+.logUp {
+    margin-top: 10px;
+    font-size: 0.8em;
+}
+
+.logUp a {
+    text-decoration: none;
+    color: primary;
+}
+
 @media (min-width: 600px) {
     .mobileInfo {
         display: flex;
