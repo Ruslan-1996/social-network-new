@@ -23,3 +23,9 @@
 .button:active {
     background-color: primaryDark;
 }
+
+.dropzoneInstructions {
+    background-color: backgroundSecondary;
+    padding: paddingApp;
+    border-radius: borderRadiusApp;
+}

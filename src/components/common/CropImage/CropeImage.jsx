@@ -29,7 +29,7 @@ const CropeImage = (props) => {
   }
 
   const onChangeAvatarMe = () => {
-    if (getImage) {
+    if (getImage && !getImage.error) {
       const file = dataURLtoFile(getImage.result, getImage.filename);
       props.dispatch(changeUserPhoto(file))
     }
@@ -41,20 +41,20 @@ const CropeImage = (props) => {
 
   const instruction = (
     <div className={s.dropzoneInstructions}>
-      <div className={s.dropzoneInstructionsTitle}>Drag-n-drop a file or click to add an image</div>
-      <div className={s.dropzoneInstructionsSub}>Accepted file
+      <div>Drag-n-drop a file or click to add an image</div>
+      <div>Accepted file
         types:.jpeg, .jpg, .png
       </div>
-      <div className={s.dropzoneInstructionsSub}>Max file
+      <div>Max file
         size: 3MB
       </div>
     </div>
   )
-
+debugger
   return (<div>
       <DropNCrop onChange={onChange} value={getImage} cropperOptions={{viewMode: 1, aspectRatio: 1}}
-                 instructions={instruction}/>
-      <button onClick={onChangeAvatarMe} disabled={!getImage} className={s.button}>change photo</button>
+                 instructions={instruction} />
+      <button onClick={onChangeAvatarMe} disabled={!getImage || getImage?.error} className={s.button}>change photo</button>
       <button onClick={onCancel} className={s.button}>cancel</button>
     </div>
   )
