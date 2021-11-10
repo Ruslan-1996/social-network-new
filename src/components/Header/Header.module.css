@@ -8,8 +8,8 @@
     justify-content: center;
     width: containerMin;
     position: fixed;
-    z-index: 1;
     border-bottom: 1px solid backgroundSecondary;
+    z-index: 100;
 }
 
 .container {

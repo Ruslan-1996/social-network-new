@@ -31,7 +31,7 @@ const Messages: React.FC<propsType> = (props) => {
             <div className={cn({[s.showUsers]: !editModeMessage},s.users)} onClick={() => setEditModeMessage(prevState => !prevState)}>
                 {users}
             </div>
-            <div className={cn({[s.hideMessage]: editModeMessage},s.messages)}>
+            <div className={s.messages}>
                 <button className={s.buttonReturn} onClick={() => setEditModeMessage(prevState => !prevState)}>
                     <FontAwesomeIcon icon={faArrowLeft}/>
                 </button>
