@@ -44,9 +44,12 @@ const ProfileContainer: React.FC<propsType> = (props) => {
     function changeDocumentTitle(title : string) {
       document.title = title
     }
-    changeDocumentTitle(user.fullName)
+    
+    if(isPreloader) {
+      changeDocumentTitle(user.fullName)
+    }
     return () => changeDocumentTitle('Social Network')
-  }, [user.fullName])
+  }, [user.fullName, isPreloader])
 
   if (!isPreloader) {
     return <ProfileLoader/>

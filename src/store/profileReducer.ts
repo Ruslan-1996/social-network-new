@@ -8,7 +8,6 @@ const TOGGLE_PRELOADER = 'profileReducer/TOGGLE_PRELOADER'
 const GET_STATUS = 'profileReducer/GET_STATUS'
 const CHANGE_USER_PHOTO = 'profileReducer/CHANGE_USER_PHOTO'
 
-
 export type postType = {
   post: string,
   id: number,
@@ -55,6 +54,8 @@ let initialState = {
   newPostText: '',
   isPreloader: false
 }
+
+console.log(initialState.user)
 
 type initialStateType = typeof initialState
 
